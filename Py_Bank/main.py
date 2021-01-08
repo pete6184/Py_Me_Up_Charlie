@@ -30,12 +30,9 @@ with open(bank_csv, "r") as csv_file:
         average_change = int(row[1]) - previous_value
         previous_value = int(row[1])
         pnl_change_list.append(average_change)
-
         # greatest_increase =
         # greatest_decrease = 
       
-
-        
 
         # Print out our data
 print("Financial Analysis")
