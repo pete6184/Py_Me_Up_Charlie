@@ -10,8 +10,8 @@ poll_csv = os.path.join("Resources", "election_data.csv")
 
 # Define default variables
 total_votes = 0
-vote_percentage = 0
-candidate_votes = 0
+candidate_list = []
+candidate_votes = []
 
 
 # Read in the CSV file
@@ -29,6 +29,8 @@ with open(poll_csv, "r") as csv_file:
         total_votes += 1
 
 #   * A complete list of candidates who received votes
+        if str(row[2]) not in candidate_list:
+            candidate_list.append(row[2])
 
 #   * The percentage of votes each candidate won
 
@@ -40,12 +42,5 @@ print("Election Results")
 print("----------------------------")
 print(f"Total Votes: {total_votes}")
 print("----------------------------")
-# print(f"{candidate}, {vote_percentage}, {candidate_votes}")
-# print(f"{candidate}, {vote_percentage}, {candidate_votes}")
-# print(f"{candidate}, {vote_percentage}, {candidate_votes}")
-# print(f"{candidate}, {vote_percentage}, {candidate_votes}")
-print("----------------------------")
-# print(f"{winner}")
-print("----------------------------")
-
+print(f"{candidate_list}")
 
