@@ -13,6 +13,7 @@ total_votes = 0
 candidate_list = []
 candidate_votes = {}
 vote_percentage = {}
+vote_winner = 0
 
 
 # Read in the CSV file
@@ -41,11 +42,12 @@ with open(poll_csv, "r") as csv_file:
 
 # The percentage of votes each candidate won
 for candidate, votes in candidate_votes.items():
-    vote_percentage[candidate] = '{0:.0%}'.format(votes / total_votes)
-
+    vote_percentage[candidate] = '{0:.3%}'.format(votes / total_votes)
 
 # The winner of the election based on popular vote.
-
+    if votes > vote_winner:
+        vote_winner = votes
+        election_winner = candidate
 
 # Print out our statments
 print("Election Results")
@@ -55,9 +57,8 @@ print("----------------------------")
 for candidate, votes in candidate_votes.items():
     print(f"{candidate}: {vote_percentage[candidate]} ({votes})")
 print("----------------------------")
-
-# print(f"Winner: {winner}")
-
+print(f"Winner: {election_winner}")
+print("----------------------------")
 
 # Export Data to text file
 output_path = os.path.join("Analysis","election_analysis.txt")
@@ -70,4 +71,6 @@ with open(output_path, "w") as text:
     text.write(f"----------------------------\n")
     for candidate, votes in candidate_votes.items():
         text.write(f"{candidate}: {vote_percentage[candidate]} ({votes})\n")
+    text.write(f"----------------------------\n")
+    text.write(f"Winner: {election_winner}\n")
     text.write(f"----------------------------\n")
