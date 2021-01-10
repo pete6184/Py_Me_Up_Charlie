@@ -12,7 +12,6 @@ poll_csv = os.path.join("Resources", "election_data.csv")
 total_votes = 0
 candidate_list = []
 candidate_votes = {}
-vote_percentage = {}
 
 
 # Read in the CSV file
@@ -26,25 +25,46 @@ with open(poll_csv, "r") as csv_file:
     # Loop through the data
     for row in csvreader:
 
-#   The total number of votes cast
+        # The total number of votes cast
         total_votes += 1
 
-#   A complete list of candidates who received votes
+        # A complete list of candidates who received votes
         if str(row[2]) not in candidate_list:
             candidate_list.append(row[2])
-
-#   The percentage of votes each candidate won
         
-#   The total number of votes each candidate won
+        # The total number of votes each candidate won
+        candidate_name = row[2]
+        if not candidate_name in candidate_votes:
+            candidate_votes[candidate_name] = 0
+        candidate_votes[candidate_name] += 1
 
-#   The winner of the election based on popular vote.
+# The percentage of votes each candidate won
+for key, value in candidate_votes.items():
+    print(key)
+    print(value)
+
+
+# The winner of the election based on popular vote.
+
 
 print("Election Results")
 print("----------------------------")
 print(f"Total Votes: {total_votes}")
 print("----------------------------")
-print(f"{candidate_list}")
+print(f"{candidate_votes}")
 
 
 print("----------------------------")
 # print(f"Winner: {winner}")
+
+# Export Data to text file
+output_path = os.path.join("Analysis","election_analysis.txt")
+
+with open(output_path, "w") as text:
+    
+    text.write(f"Election Results\n")
+    text.write(f"----------------------------\n")
+    text.write(f"Total Votes: {total_votes}\n")
+    text.write(f"----------------------------\n")
+    text.write(f"{candidate_votes}\n")
+   
