@@ -25,23 +25,23 @@ with open(bank_csv, "r") as csv_file:
     # Loop through the data
     for row in csvreader:
 
-    # Define variable for total months
+        # Define variable for total months
         total_months += 1
 
-    # Define variable for total profit/loss
+        # Define variable for total profit/loss
         total_change = total_change + int(row[1])
         
-    # Define variable for average change 
-        pnl_change = int(row[1]) - previous_value
+        # Define variable for average change 
+        if total_months > 1:
+            pnl_change = int(row[1]) - previous_value
+            pnl_change_list.append(pnl_change)
         previous_value = int(row[1])
-        pnl_change_list.append(pnl_change)
-
     
     # Find greatest month over month increase in profits
     for x in pnl_change_list:
         if x > greatest_increase:
             greatest_increase = x
-            max_month = (row[0])
+    increase_index = pnl_change_list.index(greatest_increase)
     
     # index = pnl_change_list.index(greatest_increase)
 
@@ -49,7 +49,8 @@ with open(bank_csv, "r") as csv_file:
     for y in pnl_change_list:
         if y < greatest_decrease:
             greatest_decrease = y
-            min_month = (row[0])
+    decrease_index = pnl_change_list.index(greatest_decrease)
+
     # index = pnl_change_list.index(greatest_decrease)
       
 
@@ -58,9 +59,9 @@ print("Financial Analysis")
 print("------------------------------------------")
 print(f"Total Months: {total_months}")
 print(f"Total: ${total_change}")
-print(f"Average Change: ${round(sum(pnl_change_list)/(total_months),2)}")
-print(f"Greatest Increase in Profits: {max_month} ${greatest_increase}")
-print(f"Greatest Decrease in Profits: {min_month} (${greatest_decrease})")
+print(f"Average Change: ${round(sum(pnl_change_list)/len(pnl_change_list),2)}")
+print(f"Greatest Increase in Profits: {increase_index} ${greatest_increase}")
+print(f"Greatest Decrease in Profits: {decrease_index} (${greatest_decrease})")
 
 # Export Data to text file
 
@@ -72,6 +73,6 @@ with open(output_path, "w") as text:
     text.write(f"------------------------------------------\n")
     text.write(f"Total Months: {total_months}\n")
     text.write(f"Total: ${total_change}\n")
-    text.write(f"Average Change: ${round(sum(pnl_change_list)/(total_months),2)}\n")
-    text.write(f"Greatest Increase in Profits: {max_month} ${greatest_increase}\n")
-    text.write(f"Greatest Decrease in Profits: {min_month} ${greatest_decrease}\n")
+    text.write(f"Average Change: ${round(sum(pnl_change_list)/len(pnl_change_list),2)}\n")
+    text.write(f"Greatest Increase in Profits: {increase_index} ${greatest_increase}\n")
+    text.write(f"Greatest Decrease in Profits: {decrease_index} ${greatest_decrease}\n")
