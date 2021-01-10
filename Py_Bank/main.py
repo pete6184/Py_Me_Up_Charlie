@@ -5,9 +5,6 @@ import csv
 # Path to collect data from Resources Folder
 bank_csv = os.path.join("Resources", "budget_data.csv")
 
-# Specify the file to write to
-# output_path = os.path.join("Analysis", "financial_analysis.txt")
-
 # Assigning default values for variables
 total_months = 0
 total_change = 0
@@ -16,7 +13,6 @@ previous_value = 0
 pnl_change= 0
 greatest_increase = 0
 greatest_decrease = 0
-month_change = []
 
 # Read in the CSV file
 with open(bank_csv, "r") as csv_file:
@@ -39,26 +35,43 @@ with open(bank_csv, "r") as csv_file:
         pnl_change = int(row[1]) - previous_value
         previous_value = int(row[1])
         pnl_change_list.append(pnl_change)
+
     
     # Find greatest month over month increase in profits
     for x in pnl_change_list:
         if x > greatest_increase:
             greatest_increase = x
+            max_month = (row[0])
+    
     # index = pnl_change_list.index(greatest_increase)
 
     # Find greatest month over month decrease in profits 
     for y in pnl_change_list:
         if y < greatest_decrease:
             greatest_decrease = y
+            min_month = (row[0])
     # index = pnl_change_list.index(greatest_decrease)
       
 
 # Print out our data
-
 print("Financial Analysis")
 print("------------------------------------------")
 print(f"Total Months: {total_months}")
 print(f"Total: ${total_change}")
 print(f"Average Change: ${round(sum(pnl_change_list)/(total_months),2)}")
-print(f"Greatest Increase in Profits: ${greatest_increase}")
-print(f"Greatest Decrease in Profits: ${greatest_decrease}")
+print(f"Greatest Increase in Profits: {max_month} ${greatest_increase}")
+print(f"Greatest Decrease in Profits: {min_month} (${greatest_decrease})")
+
+# Export Data to text file
+
+output_path = os.path.join("Analysis","financial_analysis.txt")
+
+with open(output_path, "w") as text:
+
+    text.write(f"Financial Analysis\n")
+    text.write(f"------------------------------------------\n")
+    text.write(f"Total Months: {total_months}\n")
+    text.write(f"Total: ${total_change}\n")
+    text.write(f"Average Change: ${round(sum(pnl_change_list)/(total_months),2)}\n")
+    text.write(f"Greatest Increase in Profits: {max_month} ${greatest_increase}\n")
+    text.write(f"Greatest Decrease in Profits: {min_month} ${greatest_decrease}\n")
