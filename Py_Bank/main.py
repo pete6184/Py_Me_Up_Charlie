@@ -53,7 +53,7 @@ with open(bank_csv, "r") as csv_file:
       
 # Print out our data
 print("Financial Analysis")
-print("------------------------------------------")
+print("--------------------------------------------------")
 print(f"Total Months: {total_months}")
 print(f"Total: ${total_change}")
 print(f"Average Change: ${round(sum(pnl_change_list)/len(pnl_change_list),2)}")
@@ -66,7 +66,7 @@ output_path = os.path.join("Analysis","financial_analysis.txt")
 with open(output_path, "w") as text:
     
     text.write(f"Financial Analysis\n")
-    text.write(f"------------------------------------------\n")
+    text.write(f"--------------------------------------------------\n")
     text.write(f"Total Months: {total_months}\n")
     text.write(f"Total: ${total_change}\n")
     text.write(f"Average Change: ${round(sum(pnl_change_list)/len(pnl_change_list),2)}\n")
