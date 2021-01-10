@@ -16,7 +16,7 @@ PyPoll
 
 In this challenge, we were asked to helping a small, rural town modernize its vote counting process.
 
-When you run the script you will condense the date to find:
+When you run the script you will condense the data to find:
 
 -The total number of votes cast
 -A complete list of candidates who received votes
