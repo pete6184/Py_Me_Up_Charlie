@@ -6,6 +6,13 @@
 
 - The assignment started with importing csv files. I was then introduced to 'for' and 'if' loops and iterating through data to store values into lists. After finding and storing the necessary data, I ran mathematical functions and statistical analysis on the data. Lastly, I exported the data into a text file.
 
+
+## Background
+
+In this homework assignment, I used the concepts to complete the **two** Python Challenges, PyBank and PyPoll.
+
+Both of these challenges encompass a real-world situation where your newfound Python scripting skills can come in handy. 
+
 **PyBank**
 
 In this challenge, we setup a script to analyze the financial records of a company.
