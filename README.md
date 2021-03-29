@@ -1,10 +1,9 @@
 # Python_Challenge
 
-## Requirements
+## Requirements & Summary
+This assignment required me to download and use a code editor (I used Visual Studio Code) to write the code to filter through the given data.
 
-- This assignment required me to download and use a code editor (I used Visual Studio Code) to write the code to filter through the given data.
-
-- The assignment started with importing csv files. I was then introduced to 'for' and 'if' loops and iterating through data to store values into lists. After finding and storing the necessary data, I ran mathematical functions and statistical analysis on the data. Lastly, I exported the data into a text file.
+The assignment started with importing csv files. I was then introduced to 'for' and 'if' loops and iterating through data to store values into lists. After finding and storing the necessary data, I ran mathematical functions and statistical analysis on the data. Lastly, I exported the data into a text file.
 
 
 ## Background
