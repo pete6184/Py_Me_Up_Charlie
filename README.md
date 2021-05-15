@@ -10,7 +10,7 @@ The assignment started with importing csv files. I was then introduced to 'for' 
 
 In this homework assignment, I used the concepts to complete the **two** Python Challenges, PyBank and PyPoll.
 
-Both of these challenges encompass a real-world situation where your newfound Python scripting skills can come in handy. 
+Both challenges encompass a real-world situation where your newfound Python scripting skills can come in handy. 
 
 **PyBank**
 
