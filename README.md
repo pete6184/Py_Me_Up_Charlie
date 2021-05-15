@@ -24,6 +24,8 @@ When you run the script, you will receive the following data:
 - The greatest increase in profits (date and amount) over the entire period
 - The greatest decrease in losses (date and amount) over the entire period.
 
+![output](https://user-images.githubusercontent.com/74940976/118373561-704b2380-b56c-11eb-8eca-7947c1587d91.PNG)
+
 **PyPoll**
 
 In this challenge, we were asked to help a small, rural town modernize its vote counting process.
@@ -35,3 +37,5 @@ When you run the script, you will condense the data to find:
 - The percentage of votes each candidate won
 - The total number of votes each candidate won
 - The winner of the election based on popular vote.
+
+![output](https://user-images.githubusercontent.com/74940976/118373565-77723180-b56c-11eb-9435-17446b33a45a.PNG)
